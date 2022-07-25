@@ -12,18 +12,23 @@
     <div id="app">
       <div class="nav-bar"></div>
 
-      <div class="cart">Cart({{ cart }})</div>
-      <product-display :premium="premium"></product-display>
-
+      <div class="cart">Cart({{ cart.length }})</div>
+      <product-display 
+        :premium="premium" 
+        @add-to-cart="updateCart"
+        @remove-from-cart="removeByid"> 
+      </product-display>
     </div>
 
-    <!-- Import Js -->
+    <!-- Import App -->
     <script src="./main.js"></script>
+
+    <!-- Import Components -->
     <script src="./components/ProductDisplay.js"></script>
 
-    <!-- Import Js -->
+    <!-- Mount App -->
     <script>
-      const mounteApp =  app.mount('#app')
+      const mountedApp = app.mount('#app')
     </script>
   </body>
 </html>
